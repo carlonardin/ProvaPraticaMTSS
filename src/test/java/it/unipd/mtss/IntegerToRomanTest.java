@@ -93,4 +93,25 @@ public class IntegerToRomanTest {
       assertEquals("L", result);
     }
 
+
+@Test
+    public void testConvertNinety() {
+      int input = 90;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("XC", result);
+    }
+
+    @Test
+    public void testConvertNinetyNine() {
+      int input = 99;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("XCIX", result);
+    }
+
+    @Test
+    public void testConvertOneHundred() {
+      int input = 100;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("C", result);
+    }
 }
