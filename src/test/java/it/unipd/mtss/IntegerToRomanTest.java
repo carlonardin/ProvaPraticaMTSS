@@ -114,4 +114,25 @@ public class IntegerToRomanTest {
       String result = IntegerToRoman.convert(input);
       assertEquals("C", result);
     }
+
+    @Test
+    public void testConvertFourHundred() {
+      int input = 400;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("CD", result);
+    }
+
+    @Test
+    public void testConvertFourHundredFortyFour() {
+      int input = 444;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("CDXLIV", result);
+    }
+
+    @Test
+    public void testConvertFiveHundred() {
+      int input = 500;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("D", result);
+    }
 }
