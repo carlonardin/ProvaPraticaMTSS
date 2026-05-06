@@ -29,4 +29,39 @@ public class IntegerToRomanTest {
       String result = IntegerToRoman.convert(input);
       assertEquals("III", result);
     }
+
+     @Test
+    public void testConvertFour() {
+      int input = 4;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("IV", result);
+    }
+
+    @Test
+    public void testConvertFive() {
+      int input = 5;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("V", result);
+    }
+
+    @Test
+    public void testConvertSix() {
+      int input = 6;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("VI", result);
+    }
+
+    @Test
+    public void testConvertNine() {
+      int input = 9;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("IX", result);
+    }
+
+    @Test
+    public void testConvertTen() {
+      int input = 10;
+      String result = IntegerToRoman.convert(input);
+      assertEquals("X", result);
+    }
 }
