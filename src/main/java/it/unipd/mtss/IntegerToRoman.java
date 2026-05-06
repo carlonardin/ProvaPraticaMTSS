@@ -6,8 +6,8 @@
 package it.unipd.mtss;
 
 public class IntegerToRoman {
-    private static final int[] VALUES = {1};
-    private static final String[] SYMBOLS = {"I"};
+    private static final int[] VALUES = {10, 9, 5, 4, 1};
+    private static final String[] SYMBOLS = {"X", "IX", "V", "IV", "I"};
 
     public static String convert(int number) {
         StringBuilder roman = new StringBuilder();
