@@ -14,6 +14,12 @@ public class IntegerToRoman {
     };
 
     public static String convert(int number) {
+        if (number < 1 || number > 1000) {
+            throw new IllegalArgumentException(
+                "Il numero deve essere compreso tra 1 e 1000"
+            );
+        }
+        
         StringBuilder roman = new StringBuilder();
         int tmpNumber = number;
 
