@@ -5,107 +5,104 @@
 
 package it.unipd.mtss;
 
-public class RomanPrinter {
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
-    private static final String[] I = {
-        " _____ ",
-        "|_   _|",
-        "  | |  ",
-        "  | |  ",
-        " _| |_ ",
-        "|_____|"
-    };
+public class RomanPrinterTest {
 
-    private static final String[] V = {
-        "__      __",
-        "\\ \\    / /",
-        " \\ \\  / / ",
-        "  \\ \\/ /  ",
-        "   \\  /   ",
-        "    \\/    "
-    };
-
-    private static final String[] X = {
-        "__   __",
-        "\\ \\ / /",
-        " \\ V / ",
-        "  > <  ",
-        " / . \\ ",
-        "/_/ \\_\\"
-    };
-
-    private static final String[] L = {
-        " _      ",
-        "| |     ",
-        "| |     ",
-        "| |     ",
-        "| |____ ",
-        "|______|"
-    };
-
-    private static final String[] C = {
-        "  _____ ",
-        " / ____|",
-        "| |     ",
-        "| |     ",
-        "| |____ ",
-        " \\_____|"
-    };
-
-    private static final String[] D = {
-        " _____  ",
-        "|  __ \\ ",
-        "| |  | |",
-        "| |  | |",
-        "| |__| |",
-        "|_____/ "
-    };
-
-    private static final String[] M = {
-        " __  __ ",
-        "|  \\/  |",
-        "| \\  / |",
-        "| |\\/| |",
-        "| |  | |",
-        "|_|  |_|"
-    };
-
-    public static String print(int num) {
-        return printAsciiArt(IntegerToRoman.convert(num));
+    @Test
+    public void testPrintI() {
+        String expected = 
+            " _____ \n" +
+            "|_   _|\n" +
+            "  | |  \n" +
+            "  | |  \n" +
+            " _| |_ \n" +
+            "|_____|";
+        assertEquals(expected, RomanPrinter.print(1));
     }
 
-    private static String printAsciiArt(String romanNumber) {
-        if (romanNumber == null || romanNumber.isEmpty()) {
-            return "";
-        }
-
-        StringBuilder result = new StringBuilder();
-
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < romanNumber.length(); j++) {
-                char currentLetter = romanNumber.charAt(j);
-                result.append(getAsciiLine(currentLetter, i));
-                
-                if (j < romanNumber.length() - 1) {
-                    result.append(" ");
-                }
-            }
-            if (i < 5) {
-                result.append("\n");
-            }
-        }
-        
-        return result.toString();
+    @Test
+    public void testPrintV() {
+        String expected = 
+            "__      __\n" +
+            "\\ \\    / /\n" +
+            " \\ \\  / / \n" +
+            "  \\ \\/ /  \n" +
+            "   \\  /   \n" +
+            "    \\/    ";
+        assertEquals(expected, RomanPrinter.print(5));
     }
 
-    private static String getAsciiLine(char letter, int lineIndex) {
-        if (letter == 'I') { return I[lineIndex]; }
-        if (letter == 'V') { return V[lineIndex]; }
-        if (letter == 'X') { return X[lineIndex]; }
-        if (letter == 'L') { return L[lineIndex]; }
-        if (letter == 'C') { return C[lineIndex]; }
-        if (letter == 'D') { return D[lineIndex]; } 
-        if (letter == 'M') { return M[lineIndex]; }
-        return "";
+    @Test
+    public void testPrintX() {
+        String expected = 
+            "__   __\n" +
+            "\\ \\ / /\n" +
+            " \\ V / \n" +
+            "  > <  \n" +
+            " / . \\ \n" +
+            "/_/ \\_\\";
+        assertEquals(expected, RomanPrinter.print(10));
+    }
+
+    @Test
+    public void testPrintL() {
+        String expected = 
+            " _      \n" +
+            "| |     \n" +
+            "| |     \n" +
+            "| |     \n" +
+            "| |____ \n" +
+            "|______|";
+        assertEquals(expected, RomanPrinter.print(50));
+    }
+
+    @Test
+    public void testPrintC() {
+        String expected = 
+            "  _____ \n" +
+            " / ____|\n" +
+            "| |     \n" +
+            "| |     \n" +
+            "| |____ \n" +
+            " \\_____|";
+        assertEquals(expected, RomanPrinter.print(100));
+    }
+
+    @Test
+    public void testPrintD() {
+        String expected = 
+            " _____  \n" +
+            "|  __ \\ \n" +
+            "| |  | |\n" +
+            "| |  | |\n" +
+            "| |__| |\n" +
+            "|_____/ ";
+        assertEquals(expected, RomanPrinter.print(500));
+    }
+
+    @Test
+    public void testPrintM() {
+        String expected = 
+            " __  __ \n" +
+            "|  \\/  |\n" +
+            "| \\  / |\n" +
+            "| |\\/| |\n" +
+            "| |  | |\n" +
+            "|_|  |_|";
+        assertEquals(expected, RomanPrinter.print(1000));
+    }
+
+    @Test
+    public void testPrintComplexNumber() {
+        String expected = 
+            " _____  __      __\n" +
+            "|_   _| \\ \\    / /\n" +
+            "  | |    \\ \\  / / \n" +
+            "  | |     \\ \\/ /  \n" +
+            " _| |_     \\  /   \n" +
+            "|_____|     \\/    ";
+        assertEquals(expected, RomanPrinter.print(4));
     }
 }
