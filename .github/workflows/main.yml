@@ -25,7 +25,10 @@ jobs:
       run: mvn -B clean compile
 
     - name: Test di Unità con JUnit
-      run: mvn -B test
+      run: mvn -B test jacoco:report
+
+    - name: Invio Report a Coveralls
+      run: mvn -B coveralls:report -DrepoToken=${{ secrets.COVERALLS_REPO_TOKEN }}
 
     - name: Analisi Statica con Checkstyle
       run: mvn -B checkstyle:check
